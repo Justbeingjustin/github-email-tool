@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="Github.EmailAddressTool.EmailProviders.EmailProvider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:local="clr-namespace:Github.EmailAddressTool.EmailProviders"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <!-- throw in some extra colour for our floating action button -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding WindowLoaded}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+
+    <Grid Margin="25,25,0,0" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="125" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="125" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <materialDesign:Card  Grid.Row="1" Grid.Column="0">
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Github Email Finder</TextBlock>
+                <materialDesign:PackIcon Grid.Row="2" Grid.Column="1" Kind="Account" Margin="0,28,0,0" Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}" />
+                <TextBox Margin="20,10,0,0" Width="300" VerticalAlignment="Top" Grid.Row="2"
+                         
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Grid.Column="1" x:Name="NameTextBox"
+                     materialDesign:HintAssist.Hint="Search Username">
+                    <TextBox.Text>
+                        <Binding Path="SearchUsername" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox Margin="20,10,0,0" Width="300" VerticalAlignment="Top" Grid.Row="3"
+                         
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Grid.Column="1" x:Name="NameTextBox2"
+                     materialDesign:HintAssist.Hint="Your Github Username">
+                    <TextBox.Text>
+                        <Binding Path="Username" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <PasswordBox Name="PasswordBox" Margin="20,10,0,0"  materialDesign:HintAssist.Hint="Your Password"  Grid.Column="1" VerticalAlignment="Top"  Grid.Row="4">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=PasswordBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
+
+
+                <Button Grid.Row="4"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Width="100" Margin="0,0,0,15"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Command="{Binding SearchCommand}"
+            ToolTip="Search">
+                    Search
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+
+
+
+
+        <DataGrid Height="400"  Grid.Row="2"  
+                  Margin="0 8 0 0" Name="Persons"
+            
+              AutoGenerateColumns="False"
+              IsReadOnly="True"
+              ItemsSource="{Binding Path=Accounts}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding image}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Width="300"
+                                Binding="{Binding Path=email}"
+                                Header="Email" />
+                <DataGridTextColumn Width="300"
+                                Binding="{Binding Path=login}"
+                                Header="Login" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+
+
+    </Grid>
+
+</UserControl>

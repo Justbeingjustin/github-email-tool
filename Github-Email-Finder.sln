@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Github.Models", "Github.Models\Github.Models.csproj", "{0CBA75B5-AE61-499D-BFD1-BAB5CF89657D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Github.Services", "Github.Services\Github.Services.csproj", "{8052A88F-7D2A-42FA-A62F-045B6FD915B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Github.EmailAddressTool", "Github.EmailAddressTool\Github.EmailAddressTool.csproj", "{B8B89371-43F2-4250-994B-23790D35DABE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Github.EmailaddressTool.Setup", "Github.EmailaddressTool.Setup\Github.EmailaddressTool.Setup.vdproj", "{E4CFAB01-8FFE-40CE-B363-D4FE9B5ACA81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CBA75B5-AE61-499D-BFD1-BAB5CF89657D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBA75B5-AE61-499D-BFD1-BAB5CF89657D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBA75B5-AE61-499D-BFD1-BAB5CF89657D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBA75B5-AE61-499D-BFD1-BAB5CF89657D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8052A88F-7D2A-42FA-A62F-045B6FD915B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8052A88F-7D2A-42FA-A62F-045B6FD915B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8052A88F-7D2A-42FA-A62F-045B6FD915B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8052A88F-7D2A-42FA-A62F-045B6FD915B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B89371-43F2-4250-994B-23790D35DABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B89371-43F2-4250-994B-23790D35DABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B89371-43F2-4250-994B-23790D35DABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B89371-43F2-4250-994B-23790D35DABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4CFAB01-8FFE-40CE-B363-D4FE9B5ACA81}.Debug|Any CPU.ActiveCfg = Debug
+		{E4CFAB01-8FFE-40CE-B363-D4FE9B5ACA81}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC38375E-BC2F-4159-B7E5-9FE1C416499E}
+	EndGlobalSection
+EndGlobal
